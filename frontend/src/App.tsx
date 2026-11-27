@@ -34,8 +34,8 @@ export default function App() {
   const [keyword, setKeyword] = useState("");
   const [mode, setMode] = useState<Mode>("broad");
   const [questions, setQuestions] = useState(false);
-  const [limit, setLimit] = useState(200);
-  const [depth, setDepth] = useState(2);
+  const [limit, setLimit] = useState(100);
+  const [depth, setDepth] = useState(3);
   const [serpInfo, setSerpInfo] = useState(true);
   const [clickstream, setClickstream] = useState(false);
 
