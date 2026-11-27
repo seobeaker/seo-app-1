@@ -1,0 +1,22 @@
+# Production: Caddy gets a Let's Encrypt certificate for SITE_ADDRESS automatically
+# and puts the whole app behind basic auth.
+{$SITE_ADDRESS} {
+	encode gzip zstd
+	basic_auth {
+		{$BASIC_AUTH_USER} {$BASIC_AUTH_HASH}
+	}
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options nosniff
+		Referrer-Policy no-referrer
+		X-Frame-Options DENY
+	}
+	handle /api/* {
+		reverse_proxy backend:8000
+	}
+	handle {
+		root * /srv
+		try_files {path} /index.html
+		file_server
+	}
+}

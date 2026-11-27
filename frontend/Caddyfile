@@ -1,0 +1,12 @@
+# Local / default: plain HTTP on :80 inside the container (mapped to localhost:8080).
+:80 {
+	encode gzip zstd
+	handle /api/* {
+		reverse_proxy backend:8000
+	}
+	handle {
+		root * /srv
+		try_files {path} /index.html
+		file_server
+	}
+}

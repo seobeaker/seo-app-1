@@ -1,0 +1,16 @@
+# VPS: docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+services:
+  web:
+    command: ["caddy", "run", "--config", "/etc/caddy/Caddyfile.prod", "--adapter", "caddyfile"]
+    env_file: .env
+    ports: !override
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:
