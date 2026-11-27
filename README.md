@@ -71,6 +71,8 @@ Open http://localhost:8080. Data (cache, lists, spend log) is kept in `./data/ap
   features come from DataForSEO Labs, which is country level. If you pick a state or city, the app
   also asks Google Ads for that location's search volume and shows it in a separate teal
   **Vol. <region>** column. You can also pick a region after a search and click **Add volume for …**.
+- **How many keywords**: the top 100 by volume per search by default (Options lets you pick 50 to 1,000).
+  Related uses depth 3 so it can fill 100 too.
 - **Tabs**: Broad match, Phrase match, Related, Ideas, plus All/Questions. "Exact phrase only" filters
   to keywords containing your seed words together and in order.
 - **Filters**: Volume, KD %, Intent, CPC, include/exclude words, and the topic groups on the left.

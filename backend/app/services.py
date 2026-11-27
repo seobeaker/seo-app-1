@@ -35,10 +35,10 @@ class SearchRequest(BaseModel):
     language_code: str = "en"
     mode: Mode = "broad"
     region_code: int | None = None  # state / region / city for Google Ads regional volume
-    limit: int = Field(default=200, ge=1, le=1000)
+    limit: int = Field(default=100, ge=1, le=1000)
     include_serp_info: bool = True
     include_clickstream_data: bool = False
-    related_depth: int = Field(default=2, ge=0, le=4)
+    related_depth: int = Field(default=3, ge=0, le=4)
     refresh: bool = False
 
 
